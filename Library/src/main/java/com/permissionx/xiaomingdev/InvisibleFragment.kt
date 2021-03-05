@@ -3,12 +3,12 @@ package com.permissionx.xiaomingdev
 import android.content.pm.PackageManager
 import androidx.fragment.app.Fragment
 
-typealias PermissionCallbacK = (Boolean,List<String>) -> Unit
+typealias PermissionCallback = (Boolean,List<String>) -> Unit
 
 class InvisibleFragment: Fragment() {
-    private var callback: PermissionCallbacK?=null
+    private var callback: PermissionCallback?=null
 
-    fun requestNow(cb: PermissionCallbacK,vararg permissions: String) {
+    fun requestNow(cb: PermissionCallback,vararg permissions: String) {
         callback = cb
         requestPermissions(permissions,1)
     }
@@ -26,5 +26,3 @@ class InvisibleFragment: Fragment() {
         }
     }
 }
-
-typealias PermissionCallback = (Boolean, List<String>) -> Unit
